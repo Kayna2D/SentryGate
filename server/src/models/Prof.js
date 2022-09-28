@@ -2,15 +2,15 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-    class Aluno extends Model {
+    class Prof extends Model {
         static associate(models) {
-            this.hasMany(models.Turma,{foreignKey: "aluno_id"});
-            this.hasOne(models.AlunoNota,{foreignKey: "aluno_id"});
+            this.hasOne(models.AlunoNota,{foreignKey: "prof_id"});
         }
     }
-            Aluno.init({
+            Prof.init({
                 nome: DataTypes.STRING,
                 sobrenome: DataTypes.STRING,
+                nome_social: DataTypes.STRING,
                 data_nasc: DataTypes.STRING,
                 genero: DataTypes.STRING,
                 rg: DataTypes.STRING,
@@ -21,13 +21,14 @@ module.exports = (sequelize, DataTypes) => {
                 rua: DataTypes.STRING,
                 complemento: DataTypes.STRING,
                 tel: DataTypes.STRING,
+                matricula: DataTypes.INTEGER,
                 email: DataTypes.STRING,
                 senha: DataTypes.STRING,
             }, {
                 sequelize,
-                modelName: 'Aluno',
+                modelName: 'Prof',
             });
-            return Aluno;
+            return Prof;
         };
         
     
