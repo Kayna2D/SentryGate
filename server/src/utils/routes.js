@@ -3,6 +3,7 @@ const AlunoController = require('../controllers/AlunoController');
 const ResponsavelController = require('../controllers/ResponsavelController');
 const ContaAlunoController = require('../controllers/ContaAlunoController');
 const LoginController = require('../controllers/LoginController');
+const ProfessorController = require('../controllers/ProfessorController');
 
 const routes = express.Router();
 
@@ -23,7 +24,8 @@ routes.post('/login', LoginController.index);
 routes.get('/responsaveis/:id_aluno', ResponsavelController.index);
 routes.post('/cadastro/:id_aluno/responsavel', ResponsavelController.store);
 
-//Cria conta do responsavel
+routes.get('/professores', ProfessorController.index);
+routes.post('/cadastro/professor', ProfessorController.store);
 
 
 

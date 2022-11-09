@@ -24,7 +24,10 @@ class Professor extends Model {
 
     //Relacionamento entre as tabelas
     static associate(models) {
-
+        this.hasMany(models.Aula, {
+            foreignKey: 'id_professor',
+            as: 'aulas'
+        })
     }
 }
 

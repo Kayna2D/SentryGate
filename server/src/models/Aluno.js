@@ -35,6 +35,11 @@ class Aluno extends Model {
         this.hasMany(models.Conta, {
             foreignKey: 'id_aluno',
             as: 'contas'
+        });
+
+        this.belongsTo(models.Chamada, {
+            foreignKey: 'id_aluno',
+            as: 'chamadas'
         })
     }
 }

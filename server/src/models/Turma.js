@@ -14,7 +14,10 @@ class Turma extends Model {
 
     //Relacionamento entre as tabelas
     static associate(models) {
-       
+        this.hasMany(models.Aula, {
+            foreignKey: 'id_aluno',
+            as: 'aulas'
+        })
     }
 
 }
