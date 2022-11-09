@@ -10,12 +10,13 @@ class Professor extends Model {
             genero: DataTypes.STRING,
             rg: DataTypes.STRING,
             cpf: DataTypes.STRING,
+            sexo: DataTypes.STRING,
             cep: DataTypes.STRING,
             cidade: DataTypes.STRING,
             bairro: DataTypes.STRING,
             rua: DataTypes.STRING,
-            complemento: DataTypes.STRING,
             tel: DataTypes.STRING,
+            matricula: DataTypes.INTEGER
         }, {
             sequelize: connection,
             tableName: 'professores',

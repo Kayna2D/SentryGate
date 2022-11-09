@@ -16,12 +16,13 @@ module.exports = {
             genero,
             rg,
             cpf,
+            sexo,
             cep,
             cidade,
             bairro,
             rua,
-            complemento,
             tel,
+            matricula
          } = req.body;
 
         const professor = await Professor.create({ 
@@ -32,12 +33,13 @@ module.exports = {
             genero,
             rg,
             cpf,
+            sexo,
             cep,
             cidade,
             bairro,
             rua,
-            complemento,
-            tel
+            tel,
+            matricula
         });
 
         return res.json(professor);
