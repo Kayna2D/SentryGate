@@ -9,20 +9,6 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      id_aluno: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'alunos', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-      },
-      id_aula: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'aulas', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-      },
       falta: {
         type: Sequelize.BOOLEAN,
         allowNull: false,

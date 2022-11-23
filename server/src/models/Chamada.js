@@ -12,13 +12,15 @@ class Chamada extends Model {
 
     //Relacionamento entre as tabelas
     static associate(models) {
-        this.belongsTo(models.Aluno, {
-            foreignKey: 'id_aluno',
+        this.belongsToMany(models.Aluno, {
+            foreignKey: 'id_chamada',
+            through: 'chamadas_alunos',
             as: 'alunos'
         })
 
-        this.belongsTo(models.Aula, {
+        this.belongsToMany(models.Aula, {
             foreignKey: 'id_aula',
+            through: 'chamadas_aulas',
             as: 'aulas'
         })   
     }

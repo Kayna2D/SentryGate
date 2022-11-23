@@ -45,7 +45,7 @@ routes.post('/cadastro/materia', MateriaController.store);
 
 // Cadastra uma nova aula
 routes.get('/aulas', AulaController.index);
-routes.post('/cadastro/materia/:id_materia/aula', AulaController.store);
+routes.post('/cadastro/aula', AulaController.store);
 
 // Cadastra uma nova chamada
 routes.get('/chamadas', ChamadaController.index);

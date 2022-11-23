@@ -22,10 +22,11 @@ class Materia extends Model {
             foreignKey: 'id_materia',
             through: 'horarios',
             as: 'professores'
-        })
+        }) 
 
-        this.hasMany(models.Aula, {
+        this.belongsToMany(models.Aula, {
             foreignKey: 'id_materia',
+            through: 'materias_aulas',
             as: 'aulas'
         })   
     }

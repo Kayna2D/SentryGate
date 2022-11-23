@@ -11,9 +11,11 @@ module.exports = {
     },
 
     async store(req, res) {
-        const { id_aula, id_aluno  } = req.params;
+        // const { id_aula, id_aluno  } = req.params;
         //Recebendo os valores do frontend pelo corpo da requisição
         const {
+            cpf_aluno,
+            data_aula,
             falta
         } = req.body;
 

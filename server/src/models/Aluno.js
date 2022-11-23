@@ -46,8 +46,9 @@ class Aluno extends Model {
             as: 'turmas'
         })
 
-        this.hasOne(models.Chamada, {
-            foreignKey: 'id_aula',
+        this.belongsToMany(models.Chamada, {
+            foreignKey: 'id_aluno',
+            through: 'chamadas_aulas',
             as: 'chamadas'
         })
     }

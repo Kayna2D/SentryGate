@@ -9,22 +9,30 @@ module.exports = {
         return res.json(aulas);
     },
     async store(req, res) {
-        const { id_materia } = req.params;
-        //Recebendo os valores do frontend pelo corpo da requisição
+        // const { id_materia } = req.params;
+        // Recebendo os valores do frontend pelo corpo da requisição
         const {
             quantidade_aula,
             data_aula,
+            nome_materia
         } = req.body;
 
-        const materia = await Materia.findByPk(id_materia) 
+        const materia = await Materia.findOne({
+            where: { nome_materia }
+        }) 
 
         //Criando os valores recebidos na tabela        
-        const aula = await Aula.create({
-                quantidade_aula,
-                data_aula,
-                id_materia
+        const aula = await Aula.findOrCreate({
+                where: { 
+                    data_aula
+                },
+                defaults: {
+                    quantidade_aula
+                }
         });
 
-            return res.status(200).json();
+        await materia.addAulas(aula);
+
+        return res.status(200).json();
     }
 }

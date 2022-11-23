@@ -1,4 +1,4 @@
-const Aluno = require('../models/Aluno');
+ const Aluno = require('../models/Aluno');
 const { findOne } = require('../models/Turma');
 const Turma = require('../models/Turma');
 const Professor = require('../models/Professor');
@@ -67,7 +67,9 @@ module.exports = {
 
 
         const [turma, created] = await Turma.findOrCreate({
-            where: { nome_turma },
+            where: { 
+                nome_turma 
+            },
             defaults: {
                 nome_turma,
                 horario_turma,

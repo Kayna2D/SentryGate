@@ -58,6 +58,8 @@ module.exports = {
                 }
             });
 
+            await aluno.addResponsavel(responsavel)
+
             
 
             return res.status(200).json()
