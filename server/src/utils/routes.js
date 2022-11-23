@@ -49,7 +49,7 @@ routes.post('/cadastro/aula', AulaController.store);
 
 // Cadastra uma nova chamada
 routes.get('/chamadas', ChamadaController.index);
-routes.post('/cadastro/aluno/:id_aluno/aula/:id_aula/chamada', ChamadaController.store);
+routes.post('/cadastro/chamada', ChamadaController.store);
 
 
 module.exports = routes;

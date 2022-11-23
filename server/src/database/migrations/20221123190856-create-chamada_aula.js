@@ -19,7 +19,7 @@ module.exports = {
       id_aula: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'turmas', key: 'id' },
+        references: { model: 'aulas', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },

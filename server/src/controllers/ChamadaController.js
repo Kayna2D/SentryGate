@@ -19,15 +19,27 @@ module.exports = {
             falta
         } = req.body;
 
-        const aula = await Aula.findByPk(id_aula) 
-        const aluno = await Aluno.findByPk(id_aluno) 
+        const aula = await Aula.findOne({
+            where: {
+                data_aula
+            }
+        }) 
+
+        const aluno = await Aluno.findOne({
+            where: {
+                cpf_aluno
+            }
+        }) 
 
         //Criando os valores recebidos na tabela        
         const chamada = await Chamada.create({
-            id_aula,
-            id_aluno,
-            falta
+                cpf_aluno,
+                data_aula,
+                falta
         });
+
+        await aula.addChamadas(chamada);
+        await aluno.addChamadas(chamada);
 
             //Recebendo a respostada da requisição
             return res.status(200).json();
