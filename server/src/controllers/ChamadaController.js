@@ -1,4 +1,4 @@
-const { findOne } = require('../models/Aula');
+const { findOne } = require('../models/Chamada');
 const Chamada = require('../models/Chamada')
 const Aula = require('../models/Aula');
 const Aluno = require('../models/Aluno')
