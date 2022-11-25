@@ -9,6 +9,10 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
+      tema_aula: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       quantidade_aula: {
         type: Sequelize.INTEGER,
         allowNull: false,

@@ -15,13 +15,13 @@ module.exports = {
         //Recebendo os valores do frontend pelo corpo da requisição
         const {
             cpf_aluno,
-            data_aula,
+            tema_aula,
             falta
         } = req.body;
 
         const aula = await Aula.findOne({
             where: {
-                data_aula
+                tema_aula
             }
         }) 
 
@@ -33,8 +33,6 @@ module.exports = {
 
         //Criando os valores recebidos na tabela        
         const chamada = await Chamada.create({
-                cpf_aluno,
-                data_aula,
                 falta
         });
 

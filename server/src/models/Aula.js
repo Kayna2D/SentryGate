@@ -3,6 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 class Aula extends Model {
     static init(connection) {
         super.init({
+            tema_aula: DataTypes.STRING,
             quantidade_aula: DataTypes.INTEGER,
             data_aula: DataTypes.DATE,
         }, {

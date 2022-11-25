@@ -12,6 +12,7 @@ module.exports = {
         // const { id_materia } = req.params;
         // Recebendo os valores do frontend pelo corpo da requisição
         const {
+            tema_aula,
             quantidade_aula,
             data_aula,
             nome_materia
@@ -24,9 +25,11 @@ module.exports = {
         //Criando os valores recebidos na tabela        
         const aula = await Aula.findOrCreate({
                 where: { 
-                    data_aula
+                    tema_aula
                 },
                 defaults: {
+                    tema_aula,
+                    data_aula,
                     quantidade_aula
                 }
         });
