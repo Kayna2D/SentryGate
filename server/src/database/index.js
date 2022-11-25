@@ -12,6 +12,7 @@ const ResponsavelAluno = require('../models/ResponsavelAluno');
 const Tarefa = require('../models/Tarefa');
 const Turma = require('../models/Turma');
 const Chamada = require('../models/Chamada');
+const Horario = require('../models/Horario')
 
 // Criando uma const para usar a configuração que usei para conectar com o banco de dados
 const connection = new Sequelize(dbConfig);
@@ -27,6 +28,7 @@ Tarefa.init(connection);
 Turma.init(connection);
 Aula.init(connection);
 Chamada.init(connection);
+Horario.init(connection);
 
 
 Aluno.associate(connection.models);
@@ -37,7 +39,7 @@ Aula.associate(connection.models);
 Professor.associate(connection.models);
 Materia.associate(connection.models);
 Chamada.associate(connection.models);
-
+Horario.associate(connection.models);
 
 
 

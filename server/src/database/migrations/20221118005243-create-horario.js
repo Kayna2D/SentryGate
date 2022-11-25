@@ -9,35 +9,13 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      id_turma: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-        references: {
-          model: "turmas",
-          key: "id"
-        },
-        onUpdate: 'cascade',
-        onDelete: 'cascade'
+      dia_horario: {
+        allowNull: false,
+        type: Sequelize.STRING
       },
-      id_prof: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-        references: {
-          model: "professores",
-          key: "id"
-        },
-        onUpdate: 'cascade',
-        onDelete: 'cascade'
-      },
-      id_materia: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-        references: {
-          model: "materias",
-          key: "id"
-        },
-        onUpdate: 'cascade',
-        onDelete: 'cascade'
+      hora_horario: {
+        allowNull: false,
+        type: Sequelize.TIME
       },
       created_at: {
         type: Sequelize.DATE,

@@ -25,15 +25,9 @@ class Professor extends Model {
     //Relacionamento entre as tabelas
     static associate(models) {
         this.belongsToMany(models.Materia, {
-            foreignKey: 'id_prof',
-            through: 'horarios',
+            foreignKey: 'id_professor',
+            through: 'professores_materias',
             as: 'materias'
-        })
-
-        this.belongsToMany(models.Turma, {
-            foreignKey: 'id_prof',
-            through: 'horarios',
-            as: 'turmas'
         })
     }
 }

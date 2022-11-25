@@ -4,8 +4,6 @@ class Turma extends Model {
     static init(connection) {
         super.init({
             nome_turma: DataTypes.STRING,
-            horario_turma: DataTypes.STRING,
-            ano_turma: DataTypes.INTEGER,
 
         }, {
             sequelize: connection,
@@ -22,16 +20,10 @@ class Turma extends Model {
             as: 'turmas'
         })
 
-       this.belongsToMany(models.Materia, {
+       this.belongsToMany(models.Horario, {
         foreignKey: 'id_turma',
-        through: 'horarios',
-        as: 'materias'
-        })
-
-        this.belongsToMany(models.Professor, {
-        foreignKey: 'id_turma',
-        through: 'horarios',
-        as: 'professores'
+        through: 'horarios_turmas',
+        as: 'horarios'
         })
     }
 

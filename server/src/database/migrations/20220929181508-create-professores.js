@@ -61,9 +61,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      matricula_professor: {
-        type: Sequelize.INTEGER
-      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

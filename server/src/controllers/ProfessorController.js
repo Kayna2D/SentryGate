@@ -1,5 +1,6 @@
 const { findOne } = require('../models/Professor');
 const Professor = require('../models/Professor');
+const Materia = require('../models/Materia')
 
 
 module.exports = {
@@ -22,8 +23,12 @@ module.exports = {
             bairro_professor,
             rua_professor,
             tel_professor,
-            matricula_professor
+            nome_materia
         } = req.body;
+
+        const materia = await Materia.findOne({
+            where: { nome_materia }
+        })
 
         //Criando os valores recebidos na tabela        
         const [professor, created] = await Professor.findOrCreate({
@@ -41,9 +46,10 @@ module.exports = {
                 bairro_professor,
                 rua_professor,
                 tel_professor,
-                matricula_professor
             }
         });
+
+        await materia.addProfessores(professor);
 
         if (!created) {
             return res.status(302).json("cpf already registered")

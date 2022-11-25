@@ -1,7 +1,6 @@
  const Aluno = require('../models/Aluno');
 const { findOne } = require('../models/Turma');
 const Turma = require('../models/Turma');
-const Professor = require('../models/Professor');
 const Materia = require('../models/Materia')
 
 
@@ -16,7 +15,6 @@ module.exports = {
         const {
             nome_turma,
             horario_turma,
-            ano_turma,
             cpf_aluno,
         } = req.body;
 
@@ -29,8 +27,7 @@ module.exports = {
             where: { nome_turma },
             defaults: {
                 nome_turma,
-                horario_turma,
-                ano_turma
+                horario_turma
             }
         });
 
@@ -50,16 +47,10 @@ module.exports = {
         //Recebendo os valores do frontend pelo corpo da requisição
         const {
             nome_turma,
+            dia_turma,
             horario_turma,
-            ano_turma,
-            cpf_professor, 
             nome_materia
         } = req.body;
-
-        const professor = await Professor.findOne({
-            where: { cpf_professor }
-        })
-
 
         const materia = await Materia.findOne({
             where: { nome_materia }
@@ -68,16 +59,16 @@ module.exports = {
 
         const [turma, created] = await Turma.findOrCreate({
             where: { 
-                nome_turma 
+                dia_turma,
+                horario_turma
             },
             defaults: {
                 nome_turma,
-                horario_turma,
-                ano_turma
+                dia_turma,
+                horario_turma
             }
         });
 
-        await professor.addTurmas(turma);
         await materia.addTurmas(turma);
 
         if (!created) {
